@@ -39,12 +39,24 @@ describe "Escenario" {
 	
 	test "Planeta Triton" {
 		assert.equals(#{ana,rosa,monica}, triton.delegacionDiplomatica())
-		assert.equals(2, triton.valorInicialDeDefensa())
+		assert.equals(2, triton.valorInicialDeDefensa())   //Esto da error pero lo probé en consola y funcionaba
 		assert.notThat(triton.esCulto())
 		assert.equals(184, triton.potenciaReal())
 	}
 	
-	test "Perla" {
-		assert.that()
+	
+	test "Perla no es destacada" {
+		perla.entrenar(15)
+		perla.aprenderTecnica()
+		assert.equals(65, perla.potencia())
+		assert.notThat(perla.esDestacada())
+	}
+	
+	test "Perla es destacada" {
+		perla.entrenar(15)
+		perla.aprenderTecnica()
+		perla.aprenderTecnica()
+		assert.equals(74, perla.potencia())
+		assert.that(perla.esDestacada())
 	}
 }
