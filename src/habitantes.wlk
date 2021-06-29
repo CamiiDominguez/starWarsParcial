@@ -6,6 +6,7 @@ class Persona {
 	method inteligencia() = if (self.edad().between(20,40)) 12 else 8
 	method esDestacada() = self.edad() == 25 or self.edad() == 35
 	method potencia() = potencia
+	method ofrecerTributo()
 }
 
 class Atleta inherits Persona {
@@ -17,6 +18,7 @@ class Atleta inherits Persona {
 	method entrenar(dias) { masaMuscular = masaMuscular + dias / 5 }
 	method aprenderTecnica() { tecnicas = tecnicas + 1}
 	override method edad() = super()
+	override method ofrecerTributo() { planeta.construirMurallas(2) }
 }
 
 class Docente inherits Persona {
@@ -25,4 +27,5 @@ class Docente inherits Persona {
 	override method inteligencia() = super() + cursosDictados * 2 
 	override method esDestacada() = cursosDictados > 3
 	override method edad() = super()
+	override method ofrecerTributo() { planeta.fundarUnMuseo() }
 }
