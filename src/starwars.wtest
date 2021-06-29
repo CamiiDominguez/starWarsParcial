@@ -43,4 +43,8 @@ describe "Escenario" {
 		assert.notThat(triton.esCulto())
 		assert.equals(184, triton.potenciaReal())
 	}
+	
+	test "Perla" {
+		assert.that()
+	}
 }

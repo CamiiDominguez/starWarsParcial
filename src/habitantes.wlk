@@ -14,8 +14,9 @@ class Atleta inherits Persona {
 	
 	override method potencia() = super() + (masaMuscular * tecnicas) 
 	override method esDestacada() = super() or tecnicas > 5
-	method entrenar(dias) { masaMuscular =+ dias / 5 }
-	method aprenderTecnica() { tecnicas =+ 1}
+	method entrenar(dias) { masaMuscular + dias / 5 }
+	method aprenderTecnica() { tecnicas + 1}
+	override method edad() = super()
 }
 
 class Docente inherits Persona {
@@ -23,4 +24,5 @@ class Docente inherits Persona {
 	
 	override method inteligencia() = super() + cursosDictados * 2 
 	override method esDestacada() = cursosDictados > 3
+	override method edad() = super()
 }
