@@ -5,14 +5,14 @@ class Persona {
 	
 	method inteligencia() = if (self.edad().between(20,40)) 12 else 8
 	method esDestacada() = self.edad() == 25 or self.edad() == 35
-	
+	method potencia() = potencia
 }
 
 class Atleta inherits Persona {
 	var property masaMuscular = 4
 	var property tecnicas = 2
 	
-	method potencia() = self.potencia() + (masaMuscular * tecnicas) 
+	override method potencia() = super() + (masaMuscular * tecnicas) 
 	override method esDestacada() = super() or tecnicas > 5
 	method entrenar(dias) { masaMuscular =+ dias / 5 }
 	method aprenderTecnica() { tecnicas =+ 1}
