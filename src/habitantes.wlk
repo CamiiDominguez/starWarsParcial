@@ -6,7 +6,8 @@ class Persona {
 	method inteligencia() = if (self.edad().between(20,40)) 12 else 8
 	method esDestacada() = self.edad() == 25 or self.edad() == 35
 	method potencia() = potencia
-	method ofrecerTributo()
+	method ofrecerTributo(planeta) = planeta
+	method valor() = self.potencia() + self.edad()
 }
 
 class Atleta inherits Persona {
@@ -18,7 +19,7 @@ class Atleta inherits Persona {
 	method entrenar(dias) { masaMuscular = masaMuscular + dias / 5 }
 	method aprenderTecnica() { tecnicas = tecnicas + 1}
 	override method edad() = super()
-	override method ofrecerTributo() { planeta.construirMurallas(2) }
+	override method ofrecerTributo(planeta) = planeta.construirMurallas(2) 
 }
 
 class Docente inherits Persona {
@@ -27,5 +28,25 @@ class Docente inherits Persona {
 	override method inteligencia() = super() + cursosDictados * 2 
 	override method esDestacada() = cursosDictados > 3
 	override method edad() = super()
-	override method ofrecerTributo() { planeta.fundarUnMuseo() }
+	override method ofrecerTributo(planeta) = planeta.fundarUnMuseo() 
+	override method valor() = super() + 5
+}
+
+class Soldado inherits Persona {
+	var property armas = []
+	
+	override method potencia() = super() + armas.sum({a => a.potencia(self)})
+	override method ofrecerTributo(planeta) = planeta.construirMurallas(5)
+}
+
+class Pistolete {
+	var property largo
+	
+	method potencia(soldado) = if (soldado.edad() > 30) largo * 3 else largo * 2	
+}
+
+class Espadon {
+	var property peso
+	
+	method potencia(soldado) = if (soldado.edad() < 40) peso / 2 else 6
 }
