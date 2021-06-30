@@ -11,7 +11,7 @@ class Planeta {
 	method potenciaReal() = habitantes.map({h => h.potencia()}).sum()
 	method construirMurallas(cantidad) { longitudDeMurallas = longitudDeMurallas + cantidad }
 	method fundarUnMuseo() { museos = museos + 1 }  
-	method potenciaAparente() = habitantes.max({h => h.potencia()}) * habitantes.size() //De aca para abajo no funciona nada
+	method potenciaAparente() = habitantes.map({h => h.potencia()}).max() * habitantes.size() 
 	method necesitaReforzarse() = self.potenciaAparente() >= 2 * self.potenciaReal()
 	method recibirTributos() = habitantes.map({h => h.ofrecerTributo(self)}) 
 	method habitantesValiosos() = habitantes.filter({h => h.valor() >= 40})
